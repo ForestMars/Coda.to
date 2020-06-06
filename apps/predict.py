@@ -11,16 +11,16 @@ from pathlib import Path
 # get_args imported if main.
 from lib.modules import * # @TODO
 from common.utils import *
-
-import data_loader
-import dashit
 from lib.fit import *
-#from style import * # speechless.
 from lib.predict_data import *
+import data_loader
 
 from app import app
 from assets import menu
 from assets import footer
+import dashit
+#from style import * # speechless.
+
 
 traces = {}
 options = [] # labels needed by app.layout
@@ -43,8 +43,8 @@ for v, k in data_loader.states.items():
     options.append(dict([('label', k), ('value', v)]))
 
 df = get_df(dataset)
-days = len(df.index) # Display entire date range by default.
-x, y = get_xy(df) # Possible legacy function.
+days = len(df.index) # Display entire date range by default?
+x, y = get_xy(df) # Likely legacy function.
 
 
 def get_date_marks(df):
@@ -178,13 +178,12 @@ def callback(app):
         ])
     def update_figurez(D, region, train_slider, y_slider):
         # Unfortunately, dcc sends a differently typed object if the list only has 1 item. :-(
-        # Fortunatetly, this is a great example of why Duck Typing rules.
+        # Fortunately, this is a great example of why Duck Typing rocks.
         if type(region) == str:
             region = [region]
         regions = region # fix
-        # obvi all we have is a region name. Let's fetch the data into a df.
-        # later app will request particular tracs for a region.
 
+        # Given a selected region, fetch the data into a df. @TODO: request specific traces.
         trace_regions = {}
         distance_data = {}
         CDH = ['positive', 'deaths', 'hospitalized'] # @FIXME: Kill this.
