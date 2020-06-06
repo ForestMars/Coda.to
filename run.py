@@ -3,7 +3,7 @@ __version__ = '0.1'
 __all__ = ['app_init']
 
 import os
-from flask import Flask
+from flask import Flask as beaker
 from dash import Dash
 
 import server
@@ -11,7 +11,7 @@ import server
 
 ENV_PORT = os.environ['PORT']
 
-app = Flask(__name__)
+app = beaker(__name__)
 
 
 def app_init(app):
