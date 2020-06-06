@@ -7,7 +7,7 @@ It's data driven, not hard coded, and the toolset itself is domain agnostic, so 
 
 # Table of contents
 
-  * [Overview](#overview)
+  * [Overview](#covid-data-tools)
   * [Build](#build)
   * [Install](#install)
   * [Deploy](#deploy)
@@ -15,7 +15,7 @@ It's data driven, not hard coded, and the toolset itself is domain agnostic, so 
      * [Docker](#docker)
      * [Metal](#metal)
   * [Run](#run)
-  * [Features](#modules)
+  * [Modules](#modules)
      * [Api](#api)  
      * [Ask](#ask)  
      * [Data](#data)  
@@ -34,7 +34,7 @@ It's data driven, not hard coded, and the toolset itself is domain agnostic, so 
      * [Running Simulation](#simulation)
   * [Release Notes](#releasenotes)        
   * [Contributing](#contributing)
-         * [Feedback](#feedback)    
+    * [Feedback](#feedback)    
   * [Resources](#license)
   * [Live Demo](#demo)
   * [License](#resources)  
@@ -43,7 +43,9 @@ It's data driven, not hard coded, and the toolset itself is domain agnostic, so 
 
 ## BUILD
 
-Codato models, such as the SEIR epidemiological model, the NLP model used for question answering (“unendlich-verstehen”), curve fitting and other are written in C/ython, so they need to be compiled for your architecture.
+Codato models, such as the SEIR epidemiological model, the NLP model used for question answering (“unendlich-verstehen”), curve fitting and others are written in C / Cython, so they need to be compiled for your architecture.
+
+Source files can be found in ```build/src/c```. Simply run the ```build.sh``` script. Oh, it didn't work? Welcome to the machine.  
 
 Codata is designed to be fault tolerant for missing [apps](#features). So you should be able to run it without building anything, and everything else should just work. Test coverage on this is, shall we say, less than complete.
 
@@ -59,7 +61,9 @@ Codata is designed to be fault tolerant for missing [apps](#features). So you sh
       * create env / source env file
       * run installer
 
-`environment.yml` should have everything you need to get started. If you’re not using Conda, I feel bad for you son, I got 99 problems but dependencies ain’t one. Note there are 2 environment files shipped, production and development. NB. the production env currently still uses the built in server.
+`environment.yml` should have everything you need to get started. If you’re not using Conda, I feel bad for you son, I got 99 problems but dependencies ain’t one.
+
+NB. there are 2 environment files shipped, production and development. The production env currently still uses the built in server.
 
 Answer a couple questions and it's off to the races:
 
@@ -74,7 +78,7 @@ Codato is deployable via Kubernetes, plain old Docker or close to the metal if y
 ### Kubernetes
 
 Helm charts are located in: ```/charts```
-At some point will probably move all 3 deploy methods into ```deploy``` directory.
+At some point, will probably move all 3 deploy methods into ```deploy``` directory.
 
 ### Docker
 
@@ -85,7 +89,7 @@ if you have root. If you don’t have root, you go hungry, I guess. Maybe find s
 
 ### Metal
 
-Just run the innstaller.
+Just run the installer.
 
 ```
 \m/
@@ -95,12 +99,13 @@ Just run the innstaller.
 
 Now you can run `codato server start` from the command line, or invoke start.sh directly, which is totally self-contained for running on bare naked metal:
 
-```./start.sh
+```
+./start.sh
 ```
 
 ### SERVER
 
-To start the front end, run the following command. Yes, it's a server, that's what the app talks to. It's all back to front. (Literaly.)
+To start the front end, run the following command. Yes, it's a server, that's how the app works. It's all back to front.
 
 ```
 run webserver
@@ -108,7 +113,8 @@ run webserver
 
 This is essentially the equivalent of invoking:
 
-```python run.py
+```
+python run.py
 ```
 
 Since the API is served with flask, you _should_ be able to start the application server with ```flask run``` which will first look for ``app.py`` and not finding it, will attempt to execute `run.py`
@@ -118,31 +124,33 @@ Since the API is served with flask, you _should_ be able to start the applicatio
 * [Custom Themes](#custom-themes)   
 
 Simply pass the theme name to ```codato webserver``` such as:
-```codato webserver --theme=pride``` (rainbow pride)
-```codato webserver --theme=blm``` (dark mode)
-```codato webserver --defalt``` (default theme)
+``codato webserver --theme=pride`` (rainbow pride)
+``codato webserver --theme=blm`` (dark mode)
+``codato webserver --defalt`` (default theme)
 
 ### Standalone Modules
 Run Predict as stantalone module: (ie not using python -m)
 
-```python -m apps.predict
 ```
+python apps/predict.py
+```
+
 A number of flags are supported on start up:
 ```
-* -D load default settings
-* -d date range to display
-* -h display help page
--m model to be used
-* -t select traning period
--v display version info
+ -D load default settings
+ -d date range to display
+ -h display help page
+ -m model to be used
+ -t select training period
+ -v display version info
 ```
 
 ## MODULES
 (_aka_ FEATURES _or_ APPS)
 
-Not to be confused with features of a model, Codato platform feature are standalone, *pluggable* modules (aka apps) which define a reactive front end and the callbacks it requires, and are automatically added simply by dropping them in the ```apps```  directory. Currently its callback needs to be maually registered in server.py, but this will be autodetected as well, allowing apps to easily be added and/or swapped out unidrectionally. Martin Fowloer is smiling his happy smile.
+Not to be confused with features of a model, Codato platform feature are standalone, *pluggable* modules (aka apps) which define a reactive front end and the machine learning callbacks it requires, and are automatically added simply by dropping them in the ```apps```  directory. Currently its callback needs to be maually registered in server.py, but this will be autodetected as well, allowing apps to easily be added and/or swapped out unidrectionally. Martin Fowler is smiling his happy smile.
 
-Codato includes the following apps by default: (move app to "inactitive" folder to remove.)
+**Codato includes the following apps by default:** (move app to "inactitive" folder to remove.)
 
 ### API
 
@@ -214,7 +222,13 @@ The limiatations of the standard SEIR model have been addressed, with additional
    * Front End & Designers esp!
    * Send that Pull Request!
 
+### FEEDBACK
+
+Let us know how you [really feel](mailto:feels@coda.to).
+
 ## Release Notes
+
+_t/k_
 
 ### Known issues
 
