@@ -105,7 +105,7 @@ def callback(app):
                 font=dict(
                     family="Trebuchet",
                     size=18,
-                    color="#668866"
+                    color="#828f13"
                     )
                 )
 

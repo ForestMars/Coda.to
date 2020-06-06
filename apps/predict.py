@@ -31,12 +31,16 @@ GEOGRAPHIC = 'US' # options are NY, US, Global
 LATEST = '5/10/2020'
 
 # This should b a tuple, if it's even needed at all.
+"""
 features = {
     #"cases": 1,
     "positive": 5,
     "hospitalized": 2,
-    "deaths": 3,
+    "death": 3,
+
 }
+"""
+
 
 ## Get Data. (this is redundant, remove here or from predict_data.py)
 for v, k in data_loader.states.items():
@@ -89,14 +93,14 @@ def get_layout():
         html.Div(
             [html.Div([
                 html.H4("COVID Spread Predictor"),
-                html.P("Generate a prediction matrix using a <u>model</u> over selected <u>features</>. Select regions to display and use sliders to set date range: and period to train on. Vertical slider on left controls zoom level. "),
+                html.Markdown('''Generate a prediction matrix using a [model](model) over selected [features](features). Select regions to display and use sliders to set date range: and period to train on. Vertical slider on left controls zoom level. "),
                 dropdown,
                 html.P("Data current up to " + LATEST),
                 ],
                 id='spread',
 
             ),
-            html.P("Use slider to select date range"),
+            #html.P("Use slider to select date range"),
             #html.P([
                 #html.Label("Regions to display:"),
                 #dropdown,
@@ -186,7 +190,7 @@ def callback(app):
         # Given a selected region, fetch the data into a df. @TODO: request specific traces.
         trace_regions = {}
         distance_data = {}
-        CDH = ['positive', 'deaths', 'hospitalized'] # @FIXME: Kill this.
+        CDH = ['positive', 'death', 'hospitalized'] # @FIXME: Kill this.
         for region in regions: # 1st region already popped
             trace_regions[region] = CDH
             #distance_data[region] = get_social_distance_data(region)
@@ -218,7 +222,8 @@ def callback(app):
         for reg in distance_data:
             fig = dashit.add_distancing_data(fig, 'distance_data', distance_data[region]['date'], distance_data[region]['social_dstance_avg'])
         """
-        fig.update_layout(xaxis_tickformat = '%d %B')
+        fig.update_layout(xaxis_tickformat = '%d %B',
+            plot_bgcolor='#fcfefb')
 
         xlim = [0, 9]
         ylim = [0, 200000]
