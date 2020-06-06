@@ -1,6 +1,6 @@
 # Covid Data Tools
 
-Codato ("COvid DAta TOols") is an machine learning framework integrating a number of different data science applications, packaged as lightweight, autonomous, pluggable apps. Although this framework is dedicated to analyzing Covid-19, it could easily be applied to any epidemiological study. (Indeed, given a bit more time, we'd like to run it for historical outbreaks of which we already know the outcomes.) Moreover the models are fully swappable, so datasets need not be limited to the epidemiological.
+Codato ("COvid DAta TOols") is a machine learning framework integrating a number of different data science applications, packaged as lightweight, autonomous, pluggable apps. Although this framework is dedicated to analyzing Covid-19, it could easily be applied to any epidemiological study. (Indeed, given a bit more time, we'd like to run it for historical outbreaks of which we already know the outcomes.) Moreover the models are fully swappable, so datasets need not be limited to the epidemiological.
 
 It's data driven, not hard coded, and the toolset itself is domain agnostic, so it could easily be used with any time series data influenced by environmental factors. Models can be written either in C (as the SEIR model here is) or Python (as the NLP model is, although it's also Cythonised.) Obviously, there's a pretty big performance difference.
 
