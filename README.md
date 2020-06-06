@@ -83,7 +83,7 @@ At some point, will probably move all 3 deploy methods into ```deploy``` directo
 ### Docker
 
 ```
-docker compsse up
+docker compose up
 ```
 if you have root. If you don’t have root, you go hungry, I guess. Maybe find somone who does.
 
