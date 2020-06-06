@@ -150,6 +150,8 @@ A number of flags are supported on start up:
 
 Not to be confused with features of a model, Codato platform features are standalone, *pluggable* modules (aka apps) which define a reactive front end and the machine learning callbacks it requires, and are automatically added simply by dropping them in the ```apps```  directory. Currently its main callback needs to be maually registered in server.py, but this will be autodetected as well, allowing apps to easily be added and/or swapped out unidrectionally. Martin Fowler is smiling his happy smile.
 
+In the current setup, some apps export layout as var and some expose as functon. Does it makes sense to support both? @Question
+
 **Codato includes the following apps by default:** (move app to ".inactive" folder to remove.)
 
 ### API
@@ -262,7 +264,7 @@ Codato is released under either the MIT or the GPL license, depending who you as
 
 You know who you are.  
 
-<br /> <br /> 
+<br /> <br />
 
 ## Dragons
 
