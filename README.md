@@ -73,7 +73,7 @@ Answer a couple questions and it's off to the races:
 
 ## DEPLOY
 
-Codato is deployable via Kubernetes, plain old Docker or close to the metal if you prefer to go containerless (a bit like streaking through a data center, I’d say.)
+Codato is deployable via Kubernetes, plain old Docker or bare naked metal if you prefer to go containerless (a bit like streaking through a data center, I’d say.)
 
 ### Kubernetes
 
@@ -129,7 +129,7 @@ Simply pass the theme name to ```codato webserver``` such as:
 ``codato webserver --defalt`` (default theme)
 
 ### Standalone Modules
-**Ex:** Run Predict as stantalone module: (ie not using python -m)
+**Ex:** Run Predict as standalone module: (ie not using python -m)
 
 ```
 python apps/predict.py
@@ -221,7 +221,7 @@ The limitations of the standard SEIR model have been addressed, with additional 
 
 #### Social Distancing
 
-Isolation and Quatnine rates are predicted based on Social Mobility Data Sets. (The default is Google.) Tune model to see exactly why 10 days is chosen as the optimal isolation constant (and 14 for quarantine.) Change dates of social distancing directives and degree of compliance. Download updated model or fed into simulation.
+Isolation and Quarantine rates are predicted based on Social Mobility Data Sets. (The default is Google.) Tune model to see exactly why 10 days is chosen as the optimal isolation constant (and 14 for quarantine.) Change dates of social distancing directives and degree of compliance. Download updated model or feed into simulation.
 
 ## CONTRIBUTE
 
@@ -241,7 +241,7 @@ _t/k_
 
 * Kind of a lot right now, it's literally version 0.1
 
-And no, there's NO animated race chart, there’s enough of those on the Internet. But the point is how trivial it is to add one here by implementing a module that exposes 2 interfaces: ```layout```, which is a list of html elements and reactive components of at least length 1, and ```callbacks``` which defines a return function for a reactive binding. That's it.
+And no, there's NO animated race chart, there’s enough of those on the Internet. But the point is how trivial it is to add one here by implementing a module that exposes 2 interfaces: ```layout```, which is a list of html elements and reactive components of at least length 1, and ```callbacks``` which returns function for a reactive binding. That's it.
 
 ### Github issue queue
 
