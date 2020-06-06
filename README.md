@@ -92,12 +92,12 @@ if you have root. If you don’t have root, you go hungry, I guess. Maybe find s
 Just run the installer.
 
 ```
-\m/
+\m/ metal
 ```
 
 ## RUN
 
-Now you can run `codato server start` from the command line, or invoke start.sh directly, which is totally self-contained for running on bare naked metal:
+Now you can run `codato server start` from the command line, or invoke start.sh directly if you're still using ansible.
 
 ```
 ./start.sh
@@ -105,7 +105,7 @@ Now you can run `codato server start` from the command line, or invoke start.sh 
 
 ### SERVER
 
-To start the front end, run the following command. Yes, it's a server, that's how the app works. It's all back to front.
+To start the app, run the following command. Yes, it's a server, that's how the app works. It's all back to front.
 
 ```
 run webserver
@@ -129,7 +129,7 @@ Simply pass the theme name to ```codato webserver``` such as:
 ``codato webserver --defalt`` (default theme)
 
 ### Standalone Modules
-Run Predict as stantalone module: (ie not using python -m)
+**Ex:** Run Predict as stantalone module: (ie not using python -m)
 
 ```
 python apps/predict.py
@@ -137,20 +137,20 @@ python apps/predict.py
 
 A number of flags are supported on start up:
 ```
- -D load default settings
- -d date range to display
- -h display help page
- -m model to be used
- -t select training period
- -v display version info
+ -D load default settings, --defaults
+ -d date range to display, --dates
+ -h display help page, --help
+ -m model to be used, --model
+ -t select training period, --train
+ -v display version info, --version
 ```
 
 ## MODULES
 (_aka_ FEATURES _or_ APPS)
 
-Not to be confused with features of a model, Codato platform feature are standalone, *pluggable* modules (aka apps) which define a reactive front end and the machine learning callbacks it requires, and are automatically added simply by dropping them in the ```apps```  directory. Currently its callback needs to be maually registered in server.py, but this will be autodetected as well, allowing apps to easily be added and/or swapped out unidrectionally. Martin Fowler is smiling his happy smile.
+Not to be confused with features of a model, Codato platform features are standalone, *pluggable* modules (aka apps) which define a reactive front end and the machine learning callbacks it requires, and are automatically added simply by dropping them in the ```apps```  directory. Currently its main callback needs to be maually registered in server.py, but this will be autodetected as well, allowing apps to easily be added and/or swapped out unidrectionally. Martin Fowler is smiling his happy smile.
 
-**Codato includes the following apps by default:** (move app to "inactitive" folder to remove.)
+**Codato includes the following apps by default:** (move app to ".inactive" folder to remove.)
 
 ### API
 
@@ -158,7 +158,7 @@ This is not an app per se but is the underlying interface all apps implement. Do
 
       * API first platform
       * Ref Doc via redoc
-      * How to add a new API endpoint?
+      * Fully Stateless Endpoints
 
 ### Ask
 
@@ -171,6 +171,7 @@ This is not an app per se but is the underlying interface all apps implement. Do
       * Browse data tables
       * Edit data in browser
       * Save or downloaded updated dataset
+      * @TODO: Data output directly available to Model app.
 
 ### Explore
 
@@ -190,14 +191,14 @@ This is not an app per se but is the underlying interface all apps implement. Do
 ### Simulation
 
       * Match model parameters to real-world data
-      * Validated output fed into Remodell
+      * Validated output fed into Re-model
 
 ### Validation
 
       * Time-series cross-validation
       * Hyperparameter tuning
 
-      Since k-fold Cross Validation doesn't work for time series data., the framework includes custom time-series cross-valisation (TX) that avoids "rolling" the data.
+Since k-fold Cross Validation doesn't work for time series data., the framework includes custom time-series cross-valisation (TX) that avoids "rolling" the data.
 
 ### World
 
@@ -212,9 +213,13 @@ This is not an app per se but is the underlying interface all apps implement. Do
 
 ### SEIR+ Model
 
-The limiatations of the standard SEIR model have been addressed, with additional considerations:
+The limitations of the standard SEIR model have been addressed, with additional considerations:
 
 * Recovered ("Removed" in SIR mode) split into recovered, and not-recovered.
+
+#### Social Distancing
+
+Isolation and Quatnine rates are predicted based on Social Mobility Data Sets. (The default is Google.) Tune model to see exactly why 10 days is chosen as the optimal isolation constant (and 14 for quarantine.) Change dates of social distancing directives and degree of compliance. Download updated model or fed into simulation.
 
 ## CONTRIBUTE
 
@@ -255,12 +260,13 @@ Codato is released under either the MIT or the GPL license, depending who you as
 
 ## Gratitude
 
-You know who you are.
+You know who you are.  
 
 
 ## Dragons
 
-<div align="center"> ABOUT | TEAM | CONTACT </div>
+<div align="center"> ABOUT | TEAM | CONTACT </div>  
+
 
 **About:** It's less about optics or end users, more about collaborative tools.
 
