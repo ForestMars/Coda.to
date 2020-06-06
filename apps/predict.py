@@ -93,7 +93,7 @@ def get_layout():
         html.Div(
             [html.Div([
                 html.H4("COVID Spread Predictor"),
-                html.Markdown('''Generate a prediction matrix using a [model](model) over selected [features](features). Select regions to display and use sliders to set date range: and period to train on. Vertical slider on left controls zoom level. "),
+                dcc.Markdown('''Generate a prediction matrix using a [model](model) over selected [features](features). Select regions to display and use sliders to set date range: and period to train on. Vertical slider on left controls zoom level.'''),
                 dropdown,
                 html.P("Data current up to " + LATEST),
                 ],
