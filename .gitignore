@@ -2,7 +2,7 @@
 build/src
 build/setup.py
 logs/*
-
+screenshots
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

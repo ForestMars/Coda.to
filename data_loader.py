@@ -17,8 +17,7 @@ DATA_FILE2 = 'ecdc_covid_data.csv'
 DATASET = DATA_DIR + DATA_AREA + DATA_FILE # legacy
 DATASET2 = DATA_DIR + DATA_AREA + DATA_FILE2 # legacy
 
-
-# This naked and needs to find a home (we only load the module once.)
+# This is naked and needs to find a home (we only load the module once.)
 dataset_files = [ dataset for dataset in utils.get_reg_files(DATA_DIR) ]
 dataset_names = [ better_title(dataset.split('.')[0].replace('_',' ').title()) for dataset in utils.get_reg_files(DATA_DIR) ]
 datasets = dict(zip(dataset_files, dataset_names))

@@ -249,8 +249,10 @@ And no, there's NO animated race chart, there’s enough of those on the Interne
 
 ## Resources
 
+* [Modeling Infectious Diseases in Humans and Animals](https://www.researchgate.net/publication/23180326_Modeling_Infectious_Diseases_in_Humans_and_Animals) - Keeling, M.J., Rohani, P. (2007)
 * [Unconditional Mean, Volatility, and the FOURIER-GARCH Representation](https://link.springer.com/chapter/10.1057/9780230295209_5)
 * [Fractional and Fractal Formulations of Gradient Linear and Nonlinear Elasticity](https://arxiv.org/abs/1808.04452)
+* [Identification of Multiple-Input Transfer Function Models](https://www.researchgate.net/publication/276953549_Identification_of_Multiple-Input_Transfer_Function_Models)
 
 ## Demo
 
