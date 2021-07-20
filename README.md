@@ -54,7 +54,7 @@ Codata is designed to be fault tolerant for missing [apps](#features). So you sh
 ### Installation and Setup
 
 * Dependencies
-      * Codato is is a framework, not a library. As such, all dependencies are managed in the environment.
+      * Codato is is a framework, not a library; all dependencies are managed in the environment.
 
 * Installation steps (once you have built)
 
